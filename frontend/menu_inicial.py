@@ -11,6 +11,8 @@ class MenuInicial(QWidget):
     Muestra una pequeña descripción de la aplicación y permite pasar al menú de selección
     '''
 
+    senal_ir_a_seleccion = pyqtSignal()
+
     def __init__(self) -> None:
         super().__init__()
         self.init_gui()
@@ -44,6 +46,7 @@ class MenuInicial(QWidget):
         # Botón
         self.contenedor_boton = QHBoxLayout()
         self.boton = QPushButton('Iniciar', self)
+        self.boton.clicked.connect(self.ir_a_seleccion)
         self.contenedor_boton.addStretch(1)
         self.contenedor_boton.addWidget(self.boton)
         self.contenedor_boton.addStretch(1)
@@ -57,3 +60,6 @@ class MenuInicial(QWidget):
         vbox.addLayout(self.contenedor_boton)
         vbox.addStretch(2)
         self.setLayout(vbox)
+    
+    def ir_a_seleccion(self):
+        self.senal_ir_a_seleccion.emit()
