@@ -118,6 +118,7 @@ class MenuPrincipal(QWidget):
         self.pixeles_imagen.setScaledSize(size)
         
         self.pixeles_imagen.start()
+        self.label_imagen.setAlignment(Qt.AlignCenter)
         self.label_imagen.setObjectName(nombre)
     
     def volver(self):

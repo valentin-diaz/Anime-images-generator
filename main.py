@@ -37,7 +37,6 @@ if __name__ == '__main__':
 
     menu_principal.senal_guardar_imagen.connect(logica_principal.guardar_imagen)
 
-
     # Iniciar el flujo del programa
     menu_inicial.show()
 
