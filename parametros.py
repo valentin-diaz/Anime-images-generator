@@ -70,6 +70,9 @@ NSFW --> Not Safe for Work (las imágenes pueden ser explícitas)'''
 
 # Menú principal
 STR_HEADER_PRINCIPAL = 'Menú Principal'
+STR_DESCRIPCION_PRINCIPAL = 'Imagen generada: '
+
+SIZE_IMAGEN = (275, 275)
 
 # Rutas
 RUTA_HELP = os.path.join('frontend', 'assets', 'help.png')
