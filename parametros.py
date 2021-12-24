@@ -1,3 +1,5 @@
+import os
+
 # Parámetros iniciales de las ventanas
 GEOMETRY_ARGS = (420, 70, 600, 600)
 TITULO = 'Anime Image Generator'
@@ -55,3 +57,9 @@ CATEGORIAS = [
     'dance',
     'cringe'
 ]
+
+MENSAJE_HELP = '''SFW -> Safe for Work
+NSFW -> Not Safe for Work (las imágenes pueden ser explícitas)'''
+
+# Rutas
+RUTA_HELP = os.path.join('frontend', 'assets', 'help.png')

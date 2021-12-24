@@ -51,6 +51,16 @@ class MenuSeleccion(QWidget):
         self.selector_tipo.addItems(p.TIPOS)
         font = QFont('Arial', 12)
         self.selector_tipo.setFont(font)
+
+        self.label_info = QLabel('', self)
+        pixeles_info = QPixmap(p.RUTA_HELP)
+        pixeles_info = pixeles_info.scaled(20, 20, transformMode=Qt.SmoothTransformation)
+        self.label_info.setPixmap(pixeles_info)
+        self.label_info.setMinimumSize(20, 30)
+        self.label_info.setAlignment(Qt.AlignCenter)
+        self.label_info.setToolTip(p.MENSAJE_HELP)
+        # self.label_info.setScaledContents(True)
+        # self.label_info.setStyleSheet('border : 1px solid black;')
         
         # - Elección de categoría
         self.selector_categoria = QComboBox(self)
@@ -62,6 +72,7 @@ class MenuSeleccion(QWidget):
 
         self.contenedor_listas.addStretch(1)
         self.contenedor_listas.addWidget(self.selector_tipo)
+        self.contenedor_listas.addWidget(self.label_info)
         self.contenedor_listas.addStretch(1)
         self.contenedor_listas.addWidget(self.selector_categoria)
         self.contenedor_listas.addStretch(1)
