@@ -31,6 +31,10 @@ if __name__ == '__main__':
 
     menu_principal.senal_cambiar_imagen.connect(logica_principal.siguiente_imagen)
 
+    menu_principal.senal_volver.connect(logica_principal.resetear_atributos)
+    menu_principal.senal_volver.connect(menu_seleccion.show)
+    menu_principal.senal_volver.connect(menu_principal.hide)
+
 
     # Iniciar el flujo del programa
     menu_inicial.show()

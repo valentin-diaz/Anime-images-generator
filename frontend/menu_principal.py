@@ -12,6 +12,7 @@ class MenuPrincipal(QWidget):
     '''
 
     senal_cambiar_imagen = pyqtSignal()
+    senal_volver = pyqtSignal()
 
     def __init__(self) -> None:
         super().__init__()
@@ -67,6 +68,7 @@ class MenuPrincipal(QWidget):
 
         self.contenedor_volver = QHBoxLayout()
         self.boton_volver = QPushButton('Volver', self)
+        self.boton_volver.clicked.connect(self.volver)
         self.contenedor_volver.addStretch(1)
         self.contenedor_volver.addWidget(self.boton_volver)
 
@@ -109,3 +111,6 @@ class MenuPrincipal(QWidget):
         self.pixeles_imagen.setScaledSize(size)
         
         self.pixeles_imagen.start()
+    
+    def volver(self):
+        self.senal_volver.emit()

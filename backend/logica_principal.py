@@ -57,3 +57,7 @@ class LogicaPrincipal(QObject):
             self.senal_enviar_gif.emit(nueva_imagen)
         elif extension == 'jpg':
             self.senal_enviar_jpg.emit(nueva_imagen)
+    
+    def resetear_atributos(self):
+        self.tipo = ''
+        self.categoria = ''
