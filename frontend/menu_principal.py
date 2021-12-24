@@ -1,5 +1,5 @@
-from PyQt5.QtCore import QLine, pyqtSignal, Qt
-from PyQt5.QtGui import QIcon, QFont, QPixelFormat, QPixmap
+from PyQt5.QtCore import QLine, QModelIndex, QSignalBlocker, pyqtSignal, Qt, QSize
+from PyQt5.QtGui import QIcon, QFont, QMovie, QPixelFormat, QPixmap
 from PyQt5.QtWidgets import (QApplication, QComboBox, QMainWindow, QWidget)
 from PyQt5.QtWidgets import (QHBoxLayout, QVBoxLayout)
 from PyQt5.QtWidgets import (QPushButton, QLabel, QLineEdit, QAction)
@@ -88,3 +88,18 @@ class MenuPrincipal(QWidget):
             )
         self.label_imagen.setPixmap(self.pixeles_imagen)
         self.label_imagen.setAlignment(Qt.AlignCenter)
+    
+    def recibir_gif(self, imagen : str):
+        pixmap = QPixmap(imagen)
+        pixmap = pixmap.scaled( 
+            *p.SIZE_IMAGEN, 
+            aspectRatioMode=Qt.KeepAspectRatio, 
+            transformMode=Qt.SmoothTransformation
+            )
+        size = pixmap.size()
+        
+        self.pixeles_imagen = QMovie(imagen)
+        self.label_imagen.setMovie(self.pixeles_imagen)
+        self.pixeles_imagen.setScaledSize(size)
+        
+        self.pixeles_imagen.start()
