@@ -20,6 +20,7 @@ class MenuInicial(QWidget):
     def init_gui(self):
         # Configuración inicial de la ventana
         self.setGeometry(*p.GEOMETRY_ARGS)
+        self.setFixedSize(p.GEOMETRY_ARGS[2], p.GEOMETRY_ARGS[3])
         self.setWindowTitle(p.TITULO)
         self.setStyleSheet(f'background-color : {p.COLOR_FONDO};')
 

@@ -10,3 +10,48 @@ STR_DESCRIPCION_INICIO = ('Esta es una pequeña aplicación en la que podrás ve
     'invito a visitar el repositorio de GitHub de Anime Image Generator en '
     'https://github.com/valentin-diaz/Anime-images-generator'
     )
+
+# Ventana de selección
+STR_HEADER_SELECCION = 'Menú de Selección'
+STR_DESCRIPCION_SELECCION = ('A continuación, indica el tipo y categoría de imagen que quieres '
+    'obtener: '
+    )
+
+TIPOS = [
+    'SFW',
+    'NSFW'
+]
+
+CATEGORIAS = [
+    'waifu',
+    'neko',
+    'shinobu',
+    'megumin',
+    'bully',
+    'cuddle',
+    'cry',
+    'hug',
+    'awoo',
+    'kiss',
+    'lick',
+    'pat',
+    'smug',
+    'bonk',
+    'yeet',
+    'blush',
+    'smile',
+    'wave',
+    'highfive',
+    'handhold',
+    'nom',
+    'bite',
+    'glomp',
+    'slap',
+    'kill',
+    'kick',
+    'happy',
+    'wink',
+    'poke',
+    'dance',
+    'cringe'
+]
