@@ -51,6 +51,7 @@ class MenuSeleccion(QWidget):
         self.selector_tipo.addItems(p.TIPOS)
         font = QFont('Arial', 12)
         self.selector_tipo.setFont(font)
+        self.selector_tipo.currentTextChanged.connect(self.cambio_tipo)
 
         self.label_info = QLabel('', self)
         pixeles_info = QPixmap(p.RUTA_HELP)
@@ -66,7 +67,7 @@ class MenuSeleccion(QWidget):
         self.selector_categoria = QComboBox(self)
         self.selector_categoria.setMinimumSize(80, 30)
         self.selector_categoria.adjustSize()
-        self.selector_categoria.addItems(p.CATEGORIAS)
+        self.selector_categoria.addItems(p.CATEGORIAS_SFW)
         font = QFont('Arial', 12)
         self.selector_categoria.setFont(font)
 
@@ -95,3 +96,11 @@ class MenuSeleccion(QWidget):
         vbox.addLayout(self.contenedor_boton)
         vbox.addStretch(2)
         self.setLayout(vbox)
+    
+    def cambio_tipo(self, value):
+        self.selector_categoria.clear()
+        if value == 'SFW':
+            self.selector_categoria.addItems(p.CATEGORIAS_SFW)
+        elif value == 'NSFW':
+            self.selector_categoria.addItems(p.CATEGORIAS_NSFW)
+    

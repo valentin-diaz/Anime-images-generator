@@ -24,7 +24,7 @@ TIPOS = [
     'NSFW'
 ]
 
-CATEGORIAS = [
+CATEGORIAS_SFW = [
     'waifu',
     'neko',
     'shinobu',
@@ -58,8 +58,15 @@ CATEGORIAS = [
     'cringe'
 ]
 
-MENSAJE_HELP = '''SFW -> Safe for Work
-NSFW -> Not Safe for Work (las imágenes pueden ser explícitas)'''
+CATEGORIAS_NSFW = [
+    'waifu',
+    'neko',
+    'trap',
+    'blowjob'
+]
+
+MENSAJE_HELP = '''SFW --> Safe for Work
+NSFW --> Not Safe for Work (las imágenes pueden ser explícitas)'''
 
 # Rutas
 RUTA_HELP = os.path.join('frontend', 'assets', 'help.png')
