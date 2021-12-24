@@ -1,6 +1,6 @@
 from PyQt5.QtCore import QLine, QModelIndex, QSignalBlocker, pyqtSignal, Qt, QSize
 from PyQt5.QtGui import QIcon, QFont, QMovie, QPixelFormat, QPixmap
-from PyQt5.QtWidgets import (QApplication, QComboBox, QMainWindow, QWidget)
+from PyQt5.QtWidgets import (QApplication, QComboBox, QFileDialog, QMainWindow, QWidget)
 from PyQt5.QtWidgets import (QHBoxLayout, QVBoxLayout)
 from PyQt5.QtWidgets import (QPushButton, QLabel, QLineEdit, QAction)
 
@@ -12,6 +12,7 @@ class MenuPrincipal(QWidget):
     '''
 
     senal_cambiar_imagen = pyqtSignal()
+    senal_guardar_imagen = pyqtSignal(str, str)
     senal_volver = pyqtSignal()
 
     def __init__(self) -> None:
@@ -58,6 +59,7 @@ class MenuPrincipal(QWidget):
         self.contenedor_botones = QHBoxLayout()
 
         self.boton_guardar = QPushButton('Guardar', self)
+        self.boton_guardar.clicked.connect(self.guardar_imagen)
         self.boton_siguiente = QPushButton('Siguiente', self)
         self.boton_siguiente.clicked.connect(self.siguiente_imagen)
         self.contenedor_botones.addStretch(1)
@@ -84,10 +86,14 @@ class MenuPrincipal(QWidget):
         vbox.addLayout(self.contenedor_volver)
         self.setLayout(vbox)
     
+    def guardar_imagen(self):
+        directorio = QFileDialog.getExistingDirectory(self, "Select Directory")
+        self.senal_guardar_imagen.emit(directorio, self.label_imagen.objectName())
+    
     def siguiente_imagen(self):
         self.senal_cambiar_imagen.emit()
     
-    def recibir_jpg(self, imagen : str):
+    def recibir_jpg(self, imagen : str, nombre : str):
         self.pixeles_imagen = QPixmap(imagen)
         self.pixeles_imagen = self.pixeles_imagen.scaled(
             *p.SIZE_IMAGEN, 
@@ -96,8 +102,9 @@ class MenuPrincipal(QWidget):
             )
         self.label_imagen.setPixmap(self.pixeles_imagen)
         self.label_imagen.setAlignment(Qt.AlignCenter)
+        self.label_imagen.setObjectName(nombre)
     
-    def recibir_gif(self, imagen : str):
+    def recibir_gif(self, imagen : str, nombre : str):
         pixmap = QPixmap(imagen)
         pixmap = pixmap.scaled( 
             *p.SIZE_IMAGEN, 
@@ -111,6 +118,7 @@ class MenuPrincipal(QWidget):
         self.pixeles_imagen.setScaledSize(size)
         
         self.pixeles_imagen.start()
+        self.label_imagen.setObjectName(nombre)
     
     def volver(self):
         self.senal_volver.emit()
