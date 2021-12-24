@@ -28,6 +28,10 @@ class LogicaPrincipal(QObject):
         self.actualizar_menu(nueva_imagen, extension)
         self.senal_mostrar_menu.emit()
 
+    def siguiente_imagen(self):
+        nueva_imagen, extension = self.obtener_imagen()
+        self.actualizar_menu(nueva_imagen, extension)
+    
     def obtener_imagen(self):
         '''
         Realiza la request HTTP a la API para obtener el link a una imagen. Después obtiene el

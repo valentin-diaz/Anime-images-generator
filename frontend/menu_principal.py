@@ -11,6 +11,8 @@ class MenuPrincipal(QWidget):
     Muestra la imagen recibida, y permite al usuario elegir entre guardarla o descartarla
     '''
 
+    senal_cambiar_imagen = pyqtSignal()
+
     def __init__(self) -> None:
         super().__init__()
         self.init_gui()
@@ -56,6 +58,7 @@ class MenuPrincipal(QWidget):
 
         self.boton_guardar = QPushButton('Guardar', self)
         self.boton_siguiente = QPushButton('Siguiente', self)
+        self.boton_siguiente.clicked.connect(self.siguiente_imagen)
         self.contenedor_botones.addStretch(1)
         self.contenedor_botones.addWidget(self.boton_guardar)
         self.contenedor_botones.addStretch(1)
@@ -78,6 +81,9 @@ class MenuPrincipal(QWidget):
         vbox.addStretch(1)
         vbox.addLayout(self.contenedor_volver)
         self.setLayout(vbox)
+    
+    def siguiente_imagen(self):
+        self.senal_cambiar_imagen.emit()
     
     def recibir_jpg(self, imagen : str):
         self.pixeles_imagen = QPixmap(imagen)
