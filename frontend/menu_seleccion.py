@@ -11,6 +11,8 @@ class MenuSeleccion(QWidget):
     Permite elegir el tipo de imágenes que se van a recibir (SFW o NSFW) y la categoría. Además, debe decir de alguna forma la diferencia entre los dos tipos, y en caso de elegir NSFW, muestra una advertencia y pide confirmar la elección
     '''
 
+    senal_ir_a_principal = pyqtSignal(str, str)
+
     def __init__(self) -> None:
         super().__init__()
         self.init_gui()
@@ -81,6 +83,7 @@ class MenuSeleccion(QWidget):
         # Botón
         self.contenedor_boton = QHBoxLayout()
         self.boton = QPushButton('Generar imagen', self)
+        self.boton.clicked.connect(self.ir_a_principal)
         self.contenedor_boton.addStretch(1)
         self.contenedor_boton.addWidget(self.boton)
         self.contenedor_boton.addStretch(1)
@@ -104,3 +107,8 @@ class MenuSeleccion(QWidget):
         elif value == 'NSFW':
             self.selector_categoria.addItems(p.CATEGORIAS_NSFW)
     
+    def ir_a_principal(self):
+        tipo = self.selector_tipo.currentText().lower()
+        categoria = self.selector_categoria.currentText().lower()
+        print(tipo, ' ', categoria)
+        self.senal_ir_a_principal.emit(tipo, categoria)

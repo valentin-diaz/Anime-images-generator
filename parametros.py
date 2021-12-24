@@ -68,5 +68,8 @@ CATEGORIAS_NSFW = [
 MENSAJE_HELP = '''SFW --> Safe for Work
 NSFW --> Not Safe for Work (las imágenes pueden ser explícitas)'''
 
+# Menú principal
+STR_HEADER_PRINCIPAL = 'Menú Principal'
+
 # Rutas
 RUTA_HELP = os.path.join('frontend', 'assets', 'help.png')
