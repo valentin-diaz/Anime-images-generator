@@ -26,6 +26,8 @@ if __name__ == '__main__':
     logica_principal.senal_mostrar_menu.connect(menu_principal.show)
     logica_principal.senal_mostrar_menu.connect(menu_seleccion.hide)
 
+    logica_principal.senal_enviar_jpg.connect(menu_principal.recibir_jpg)
+
 
     # Iniciar el flujo del programa
     menu_inicial.show()

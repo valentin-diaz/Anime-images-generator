@@ -1,7 +1,6 @@
 import requests
 import os
 from PyQt5.QtCore import QObject, pyqtSignal
-from requests.api import request
 
 class LogicaPrincipal(QObject):
     '''
@@ -10,6 +9,8 @@ class LogicaPrincipal(QObject):
     '''
 
     senal_mostrar_menu = pyqtSignal()
+    senal_enviar_jpg = pyqtSignal(str)
+    senal_enviar_gif = pyqtSignal(str)
 
     def __init__(self) -> None:
         super().__init__()
@@ -23,14 +24,16 @@ class LogicaPrincipal(QObject):
         '''
         self.tipo = tipo
         self.categoria = categoria
-        nueva_imagen = self.obtener_imagen()
-        self.actualizar_menu(nueva_imagen)
+        nueva_imagen, extension = self.obtener_imagen()
+        self.actualizar_menu(nueva_imagen, extension)
         self.senal_mostrar_menu.emit()
 
     def obtener_imagen(self):
         '''
         Realiza la request HTTP a la API para obtener el link a una imagen. Después obtiene el
-        contenido en bytes de esa imagen y la guarda en un nuevo archivo temporal
+        contenido en bytes de esa imagen y la guarda en un nuevo archivo temporal. Retorna una
+        tupla donde el primer valor es la ruta de la imagen, y el segundo valor es el tipo
+        ('gif' o 'jpg')
         '''
         respuesta = requests.get(f'https://api.waifu.pics/{self.tipo}/{self.categoria}')
         url_imagen = respuesta.json()['url']
@@ -42,8 +45,11 @@ class LogicaPrincipal(QObject):
         ruta_archivo = os.path.join('images', f'actual.{extension}')
         with open (ruta_archivo, 'wb') as f:
             f.write(imagen.content)
-        return ruta_archivo
+        return (ruta_archivo, extension)
         
 
-    def actualizar_menu(self, nueva_imagen : str):
-        pass
+    def actualizar_menu(self, nueva_imagen : str, extension : str):
+        if extension == 'gif':
+            self.senal_enviar_gif.emit(nueva_imagen)
+        elif extension == 'jpg':
+            self.senal_enviar_jpg.emit(nueva_imagen)

@@ -78,3 +78,13 @@ class MenuPrincipal(QWidget):
         vbox.addStretch(1)
         vbox.addLayout(self.contenedor_volver)
         self.setLayout(vbox)
+    
+    def recibir_jpg(self, imagen : str):
+        self.pixeles_imagen = QPixmap(imagen)
+        self.pixeles_imagen = self.pixeles_imagen.scaled(
+            *p.SIZE_IMAGEN, 
+            aspectRatioMode=Qt.KeepAspectRatio, 
+            transformMode=Qt.SmoothTransformation
+            )
+        self.label_imagen.setPixmap(self.pixeles_imagen)
+        self.label_imagen.setAlignment(Qt.AlignCenter)
