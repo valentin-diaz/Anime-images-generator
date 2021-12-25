@@ -51,8 +51,9 @@ class MenuSeleccion(QWidget):
         self.selector_tipo.setMinimumSize(80, 30)
         self.selector_tipo.adjustSize()
         self.selector_tipo.addItems(p.TIPOS)
-        font = QFont('Arial', 12)
+        font = QFont('Helvetica', 12)
         self.selector_tipo.setFont(font)
+        self.selector_tipo.setStyleSheet(p.ESTILO_COMBOBOX)
         self.selector_tipo.currentTextChanged.connect(self.cambio_tipo)
 
         self.label_info = QLabel('', self)
@@ -70,8 +71,9 @@ class MenuSeleccion(QWidget):
         self.selector_categoria.setMinimumSize(80, 30)
         self.selector_categoria.adjustSize()
         self.selector_categoria.addItems(p.CATEGORIAS_SFW)
-        font = QFont('Arial', 12)
+        font = QFont('Helvetica', 12)
         self.selector_categoria.setFont(font)
+        self.selector_categoria.setStyleSheet(p.ESTILO_COMBOBOX)
 
         self.contenedor_listas.addStretch(1)
         self.contenedor_listas.addWidget(self.selector_tipo)

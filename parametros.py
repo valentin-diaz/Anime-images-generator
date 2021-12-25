@@ -21,6 +21,10 @@ ESTILO_BOTON = ('QPushButton{'
     '}'
     )
 
+ESTILO_COMBOBOX = ('background-color : white;'
+    'border : 1.5px solid black;'
+    )
+
 # Ventana inicial
 STR_HEADER_INICIO = '¡Bienvenido/a a Anime Image Generator!'
 STR_DESCRIPCION_INICIO = ('Esta es una pequeña aplicación en la que podrás ver y descargar imágenes'
