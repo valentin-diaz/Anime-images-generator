@@ -4,6 +4,22 @@ import os
 GEOMETRY_ARGS = (420, 70, 600, 600)
 TITULO = 'Anime Image Generator'
 COLOR_FONDO = '#555A61'
+ESTILO_BOTON = ('QPushButton{'
+    f'background-color : {COLOR_FONDO};'
+    'border : none;'
+    'height : 40px;'
+    'padding-left : 20px;'
+    'padding-right : 20px;'
+    '}'
+    'QPushButton::hover{'
+    'background-color : white;'
+    'border : 1px solid white;'
+    'border-top-left-radius : 15px;'
+    'border-top-right-radius : 15px;'
+    'border-bottom-left-radius : 15px;'
+    'border-bottom-right-radius : 15px;'
+    '}'
+    )
 
 # Ventana inicial
 STR_HEADER_INICIO = '¡Bienvenido/a a Anime Image Generator!'

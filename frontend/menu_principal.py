@@ -50,7 +50,7 @@ class MenuPrincipal(QWidget):
         self.label_imagen = QLabel(self)
         self.pixeles_imagen = None
         self.label_imagen.setFixedSize(*p.SIZE_IMAGEN)
-        self.label_imagen.setStyleSheet('border : 1px solid black')
+        # self.label_imagen.setStyleSheet('border : 1px solid black')
         self.contenedor_imagen.addStretch(1)
         self.contenedor_imagen.addWidget(self.label_imagen)
         self.contenedor_imagen.addStretch(1)
@@ -59,9 +59,15 @@ class MenuPrincipal(QWidget):
         self.contenedor_botones = QHBoxLayout()
 
         self.boton_guardar = QPushButton('Guardar', self)
+        self.boton_guardar.setFont(QFont('Helvetica', 14))
+        self.boton_guardar.setStyleSheet(p.ESTILO_BOTON)
         self.boton_guardar.clicked.connect(self.guardar_imagen)
+        
         self.boton_siguiente = QPushButton('Siguiente', self)
         self.boton_siguiente.clicked.connect(self.siguiente_imagen)
+        self.boton_siguiente.setFont(QFont('Helvetica', 14))
+        self.boton_siguiente.setStyleSheet(p.ESTILO_BOTON)
+        
         self.contenedor_botones.addStretch(1)
         self.contenedor_botones.addWidget(self.boton_guardar)
         self.contenedor_botones.addStretch(1)
@@ -70,6 +76,8 @@ class MenuPrincipal(QWidget):
 
         self.contenedor_volver = QHBoxLayout()
         self.boton_volver = QPushButton('Volver', self)
+        self.boton_volver.setFont(QFont('Helvetica', 14))
+        self.boton_volver.setStyleSheet(p.ESTILO_BOTON)
         self.boton_volver.clicked.connect(self.volver)
         self.contenedor_volver.addStretch(1)
         self.contenedor_volver.addWidget(self.boton_volver)

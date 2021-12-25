@@ -83,6 +83,9 @@ class MenuSeleccion(QWidget):
         # Botón
         self.contenedor_boton = QHBoxLayout()
         self.boton = QPushButton('Generar imagen', self)
+        self.boton.setFont(QFont('Helvetica', 14))
+        self.boton.setStyleSheet(p.ESTILO_BOTON)
+        self.boton.resize(100, 50)
         self.boton.clicked.connect(self.ir_a_principal)
         self.contenedor_boton.addStretch(1)
         self.contenedor_boton.addWidget(self.boton)

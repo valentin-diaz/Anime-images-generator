@@ -27,6 +27,7 @@ class MenuInicial(QWidget):
         # Header
         self.contenedor_titulo = QHBoxLayout()
         self.label_titulo = QLabel(p.STR_HEADER_INICIO, self)
+        self.label_titulo.setFont(QFont('Helvetica', 20))
         # self.label_titulo.setStyleSheet('border : 1px solid black;')
         self.contenedor_titulo.addStretch(1)
         self.contenedor_titulo.addWidget(self.label_titulo)
@@ -37,6 +38,7 @@ class MenuInicial(QWidget):
         self.label_descripcion = QLabel(p.STR_DESCRIPCION_INICIO, self)
         self.label_descripcion.setFixedWidth(500)
         self.label_descripcion.setWordWrap(True)
+        self.label_descripcion.setFont(QFont('Helvetica', 10))
         self.label_descripcion.setAlignment(Qt.AlignCenter)
         self.label_descripcion.openExternalLinks()
         # self.label_descripcion.setStyleSheet('border : 1px solid black;')
@@ -47,6 +49,9 @@ class MenuInicial(QWidget):
         # Botón
         self.contenedor_boton = QHBoxLayout()
         self.boton = QPushButton('Iniciar', self)
+        self.boton.setFont(QFont('Helvetica', 14))
+        self.boton.setStyleSheet(p.ESTILO_BOTON)
+        # self.boton.resize(100, 50)
         self.boton.clicked.connect(self.ir_a_seleccion)
         self.contenedor_boton.addStretch(1)
         self.contenedor_boton.addWidget(self.boton)
