@@ -29,6 +29,7 @@ class MenuPrincipal(QWidget):
         # Header
         self.contenedor_titulo = QHBoxLayout()
         self.label_titulo = QLabel(p.STR_HEADER_PRINCIPAL, self)
+        self.label_titulo.setFont(QFont('Helvetica', 20))
         # self.label_titulo.setStyleSheet('border : 1px solid black;')
         self.contenedor_titulo.addStretch(1)
         self.contenedor_titulo.addWidget(self.label_titulo)
@@ -40,6 +41,7 @@ class MenuPrincipal(QWidget):
         self.label_descripcion.setFixedWidth(500)
         self.label_descripcion.setWordWrap(True)
         self.label_descripcion.setAlignment(Qt.AlignCenter)
+        self.label_descripcion.setFont(QFont('Helvetica', 10))
         # self.label_descripcion.setStyleSheet('border : 1px solid black;')
         self.contenedor_descripcion.addStretch(1)
         self.contenedor_descripcion.addWidget(self.label_descripcion)

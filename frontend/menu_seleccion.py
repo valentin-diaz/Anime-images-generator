@@ -27,6 +27,7 @@ class MenuSeleccion(QWidget):
         # Header
         self.contenedor_titulo = QHBoxLayout()
         self.label_titulo = QLabel(p.STR_HEADER_SELECCION, self)
+        self.label_titulo.setFont(QFont('Helvetica', 20))
         # self.label_titulo.setStyleSheet('border : 1px solid black;')
         self.contenedor_titulo.addStretch(1)
         self.contenedor_titulo.addWidget(self.label_titulo)
@@ -38,6 +39,7 @@ class MenuSeleccion(QWidget):
         self.label_descripcion.setFixedWidth(500)
         self.label_descripcion.setWordWrap(True)
         self.label_descripcion.setAlignment(Qt.AlignLeft)
+        self.label_descripcion.setFont(QFont('Helvetica', 10))
         # self.label_descripcion.setStyleSheet('border : 1px solid black;')
         self.contenedor_descripcion.addStretch(1)
         self.contenedor_descripcion.addWidget(self.label_descripcion)
@@ -48,7 +50,7 @@ class MenuSeleccion(QWidget):
         
         # - Elección de tipo
         self.selector_tipo = QComboBox(self)
-        self.selector_tipo.setMinimumSize(80, 30)
+        self.selector_tipo.setMinimumSize(110, 30)
         self.selector_tipo.adjustSize()
         self.selector_tipo.addItems(p.TIPOS)
         font = QFont('Helvetica', 12)
@@ -68,7 +70,7 @@ class MenuSeleccion(QWidget):
         
         # - Elección de categoría
         self.selector_categoria = QComboBox(self)
-        self.selector_categoria.setMinimumSize(80, 30)
+        self.selector_categoria.setMinimumSize(110, 30)
         self.selector_categoria.adjustSize()
         self.selector_categoria.addItems(p.CATEGORIAS_SFW)
         font = QFont('Helvetica', 12)
